@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController, NavParams, Alert } from 'ionic-angular';
+import { 
+  AlertController, 
+  NavController, 
+  NavParams, 
+  ModalController 
+} from 'ionic-angular';
 //Servicio de comunicacion de autos
 import { BasicProvider } from '../../providers/basic/basic';
+//Pagina a donde se mostrará el modal
+import { AgregarPage } from '../agregar/agregar';
 
 @Component({
   selector: 'page-autos',
@@ -13,6 +20,7 @@ export class AutosPage implements OnInit{
   public autos:any[]
   sinAutos:boolean
   constructor(
+    private modalCtr:ModalController,
     public navCtrl: NavController, 
     public navParams: NavParams,
     public alertCtrl:AlertController,
@@ -65,4 +73,14 @@ export class AutosPage implements OnInit{
     this.getData()
   }
 
+  public modalAgregar(){
+    //Abrimos nuestro modal
+    let createModal = this.modalCtr.create(AgregarPage)
+    //Al cerrarse actualizamos hacemos la llamada nuevamente de todos los autos
+    createModal.onDidDismiss(()=>{
+      this.getData()
+    })
+    //Presentamos el modal
+    createModal.present()
+  }
 }

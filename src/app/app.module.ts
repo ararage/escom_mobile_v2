@@ -9,6 +9,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AutosPage } from '../pages/autos/autos';
+import { AgregarPage } from '../pages/agregar/agregar';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,9 @@ import { AndroidPermissions } from '@ionic-native/android-permissions';
 //Provider
 import { BasicProvider } from '../providers/basic/basic';
 
+//Pipe
+import { TituloPipe } from '../pipes/titulo/titulo'; 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,7 +35,9 @@ import { BasicProvider } from '../providers/basic/basic';
     ContactPage,
     HomePage,
     TabsPage,
-    AutosPage
+    AutosPage,
+    AgregarPage,
+    TituloPipe
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ import { BasicProvider } from '../providers/basic/basic';
     ContactPage,
     HomePage,
     TabsPage,
-    AutosPage
+    AutosPage,
+    AgregarPage
   ],
   providers: [
     StatusBar,
